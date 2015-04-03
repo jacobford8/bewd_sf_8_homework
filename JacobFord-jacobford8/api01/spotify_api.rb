@@ -1,6 +1,4 @@
 #we need to be able to work with the json from Spotify
-require 'json'
-require 'rest-client'
 
 
 #let's get the most streamed tracks for the week from Spotify
