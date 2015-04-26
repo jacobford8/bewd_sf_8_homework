@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snowflake</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+			<h3 class="text-center">You're A Special Snowflake.</h3>
+			<% if current_user %>
+			<p class="navbar-text navbar-right pull-right">Signed in as <%= current_user.name %></p>
+			<% end %>
+</nav>		
+<div class="container-fluid">		
+	<% if current_user %>
+		<div class="jumbotron center vertical-center">
+			<h1>Congratulations!</h1>
+			<p>There are over half a billion registered twitter users and <%= current_user.followers %> of them care about what you have to say.</p>
+			<p><a class="btn btn-primary btn-lg btn" href="/signout">Sign Out</a>
+		</div>
+	<% else %>
+		<div class="text-center">
+			<%= link_to "Sign In With Twitter", auth_twitter_path, :class => 'btn btn-lg btn-default navbar-btn center' %>	
+		</div>
+	<% end %>
+</div>			
+	</div>
+	</div>
+				
+<%= yield %>
+
+</body>
+</html>
